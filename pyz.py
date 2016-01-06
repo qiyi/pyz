@@ -9,7 +9,7 @@ def create_archive(source, output):
         fd.write(b'#!/usr/bin/env python\n')
         with zipfile.ZipFile(fd, 'w') as z:
             for dir_path, dir_names, file_names in os.walk(source):
-                if dir_path in ('.git', '.svn', '.settings'):
+                if os.path.basename(dir_path) in ('.git', '.svn', '.settings'):
                     continue
                 relative_dir_path = os.path.relpath(dir_path, source)
                 if not file_names:
