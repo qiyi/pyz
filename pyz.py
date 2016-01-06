@@ -4,7 +4,7 @@ import os.path
 import stat
 import zipfile
 
-__excludes__ = ('.git', '.svn', '.settings')
+__excludes__ = ['.git', '.svn', '.settings']
 
 def create_archive(source, output):
     with open(output, 'wb') as fd:
